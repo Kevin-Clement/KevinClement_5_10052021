@@ -1,0 +1,47 @@
+body{
+    font-family: 'Roboto';
+}
+
+.navbar-brand{
+    font-size: 1.5em;
+    border: 2px solid white;
+    padding: 3px 10px;
+    border-radius: 6px;
+    transition: 150ms ease-in-out;
+}
+.navbar-brand:hover{
+    opacity: .7;
+}
+
+.title{
+    background: rgba(248, 248, 248, 0.7);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
+.card-img{
+    overflow: hidden;
+}
+
+.card-img-top{
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.card-img-top:hover{
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+footer{
+    margin-top: 30px;
+}
+
+.fab{
+    color: white !important;
+    transition: 150ms ease-in-out;
+}
+.fab:hover{
+    opacity: .6;
+}
