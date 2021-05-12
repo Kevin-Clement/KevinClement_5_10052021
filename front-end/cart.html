@@ -9,8 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/406da18a0b.js" crossorigin="anonymous" defer></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-        crossorigin="anonymous">
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/front-end/style.css">
     <title>Orinoco</title>
 </head>
@@ -29,8 +28,8 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="index.html">Accueil</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="cart.html">Panier <span><i class="fas fa-shopping-bag"></i></span></a>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Panier <span><i class="fas fa-shopping-bag"></i></span></a>
                             </li>
                         </ul>
                     </div>
@@ -38,7 +37,7 @@
             </div>
         </div>
     </header>
-    <div class="container text-center">
+    <section class="container text-center">
         <div class="row">
             <div class="col">
                 <div class="title">
@@ -46,12 +45,28 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container text-center">
-            <div id="article" class="row justify-content-around mt-5">
-
-            </div>
-    </div>
+    </section>
+    <section class="container col-sm-10 col-12 mx-auto mt-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center">Article</th>
+                    <th class="text-center">Quantité</th>
+                    <th class="text-center">Prix</th>
+                </tr>
+            </thead>
+            <tbody id="products-tablebody">
+            </tbody>
+            <tfoot id="products-footer">
+            </tfoot>
+        </table>
+    </section>
+    <section class="container col-8 form-parent">
+        <!-- <div id="content__emptycart" class="d-flex justify-content-center"></div> -->
+        <div id="order-send" class="text-center"></div>
+        <form id="order-form"></form>
+    </section>
+    <div class="col-12 d-flex justify-content-center text-reset mt-5"><a href="/front-end/index.html"><i class="fas fa-arrow-left"></i></a></div>
     <footer class="container-fluid bg-dark footer">
         <div class="container my-auto">
             <ul class="row list-inline text-center justify-content-around pt-3">
@@ -78,7 +93,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
-    <script src="./js/product.js"></script>
+    <script src="./js/cart.js"></script>
 </body>
 
 </html>

@@ -46,7 +46,17 @@ footer{
 .fab:hover{
     opacity: .6;
 }
+.fa-shopping-bag{
+    padding-left: 10px;
+}
+.fa-arrow-left{
+    color: #343A40;
+    font-size: 1.5em;
+}
 
+table{
+    border: 2px solid #dee2e6;
+}
 html {
     position: relative;
     min-height: 100%;

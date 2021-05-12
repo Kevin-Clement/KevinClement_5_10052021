@@ -25,14 +25,12 @@ function getArticle() {
         .then(function (article) {
             // console.log(article);
             document.getElementById("article").innerHTML = `
-            <div class="card col-lg-5 col-md-12 col-sm-12 col-12 mt-2 mb-0 pt-3 pb-3 shadow">
-                <div class="card text-decoration-none text-reset">
-                    <div class="card-img">
-                        <img class="card-img-top" src="${article.imageUrl}" alt="">
-                    </div>
+            <div class="card col-lg-5 col-md-12 col-sm-12 col-12 mt-2 pt-3 pb-3 shadow">
+                <div class="card-img">
+                    <img class="card-img" src="${article.imageUrl}" alt="">
                 </div>
             </div>
-            <div class="card col-lg-5 col-md-12 col-sm-12 col-12 mt-2 mb-0 pt-3 pb-3 shadow">
+            <div class="card col-lg-5 col-md-12 col-sm-12 col-12 mt-2 pt-3 pb-3 shadow">
                 <div class="card text-decoration-none text-reset">
                     <div class="card-body pb-5">
                         <h5 class="card-title"><strong>${article.name}</strong> ${(article.price)/100}.00 €</h5>
@@ -53,7 +51,7 @@ function getArticle() {
             // Selection du bouton Ajouter au panier
 
             const userChoice = document.getElementById("btn");
-            console.log(userChoice);
+            // console.log(userChoice);
 
             // On écoute le bouton
             userChoice.addEventListener("click", (e) => {
@@ -67,9 +65,10 @@ function getArticle() {
                     quantity: 1,
                     price: article.price / 100,
                 };
-                console.log(optionsProduct)
+                // console.log(optionsProduct)
 
                 //****************Local storage****************/
+                //Variable articleInLocalStorage dans laquelle on met les keys values dans le localStorage
                 // parse() analyse une chaîne de caractères JSON et construit la valeur JavaScript
                 let articleInLocalStorage = JSON.parse(localStorage.getItem("article"));
 
@@ -78,24 +77,28 @@ function getArticle() {
                     if(window.confirm( 
                         `${article.name} au prix de ${article.price / 100}.00€ a bien été ajouté au panier 
 Consultez le panier OK ou revenir à l'acceuil ANNULER`)){
-                        window.location.href = "panier.html";
+                        window.location.href = "cart.html";
                     }else{
                         window.location.href = "index.html";
                     }
                 }
+                // Fonction pour ajout article 
+                const addArticleLocalStorage = () =>{
+                    //Ajout dans le tableau articleInLocalStorage de l'objet optionsProduct
+                    articleInLocalStorage.push(optionsProduct);
+                    // stringify() convertit une valeur JavaScript en chaîne JSON et envoie dans la key "article" du localStorage
+                    localStorage.setItem("article", JSON.stringify(articleInLocalStorage));
+                }
                 // Si il y a déjà des articles dans le localStorage
                 if (articleInLocalStorage) {
-                    articleInLocalStorage.push(optionsProduct);
-                    // stringify() convertit une valeur JavaScript en chaîne JSON
-                    localStorage.setItem("article", JSON.stringify(articleInLocalStorage));
+                    addArticleLocalStorage();
                     console.log(articleInLocalStorage);
                     popupConfirm();
                 }
                 // Si il n'y a pas d'articles dans le localStorage
                 else {
                     articleInLocalStorage = [];
-                    articleInLocalStorage.push(optionsProduct);
-                    localStorage.setItem("article", JSON.stringify(articleInLocalStorage));
+                    addArticleLocalStorage();
                     console.log(articleInLocalStorage);
                     popupConfirm();
                 }
