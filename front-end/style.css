@@ -1,5 +1,5 @@
 body{
-    font-family: 'Roboto';
+    font-family: 'Poppins';
 }
 
 .navbar-brand{
@@ -53,10 +53,22 @@ footer{
     color: #343A40;
     font-size: 1.5em;
 }
-
-table{
-    border: 2px solid #dee2e6;
+.fa-shopping-bag{
+    padding-left: 10px;
+    color: white !important;
+    transition: 150ms ease-in-out;
 }
+.fa-trash-alt{
+    color: #343A40;
+    font-size: 1.5em;
+}
+.btn-trash{
+    border: none;
+    outline: none;
+    background-color: white;
+    padding-top: 2px;
+}
+
 html {
     position: relative;
     min-height: 100%;
@@ -75,3 +87,4 @@ label{
         bottom: 0;
     }
 }
+
