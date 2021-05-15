@@ -43,7 +43,7 @@ function getArticle() {
                                     `).join()}
                                 </select>
                         </form>
-                        <button id="btn" type="submit" name="btn">Ajoutez l'article au panier</button>
+                        <button class="btn-infocart"id="btn" type="submit" name="btn">Ajoutez l'article au panier</button>
                     </div>
                 </div>
             </div>`;
@@ -73,17 +73,17 @@ function getArticle() {
                 let articleInLocalStorage = JSON.parse(localStorage.getItem("article"));
 
                 // popup confirm() pour soit aller au panier ou retourner à l'acceuil;
-                const popupConfirm = () =>{
-                    if(window.confirm( 
-                        `${article.name} au prix de ${article.price / 100}.00€ a bien été ajouté au panier 
-Consultez le panier OK ou revenir à l'acceuil ANNULER`)){
+                const popupConfirm = () => {
+                    if (window.confirm(
+                            `${article.name} au prix de ${article.price / 100}.00€ a bien été ajouté au panier 
+Consultez le panier OK ou revenir à l'acceuil ANNULER`)) {
                         window.location.href = "cart.html";
-                    }else{
+                    } else {
                         window.location.href = "index.html";
                     }
                 }
                 // Fonction pour ajout article 
-                const addArticleLocalStorage = () =>{
+                const addArticleLocalStorage = () => {
                     //Ajout dans le tableau articleInLocalStorage de l'objet optionsProduct
                     articleInLocalStorage.push(optionsProduct);
                     // stringify() convertit une valeur JavaScript en chaîne JSON et envoie dans la key "article" du localStorage

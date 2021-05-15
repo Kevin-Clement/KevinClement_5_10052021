@@ -15,59 +15,66 @@
 </head>
 
 <body>
-    <header class="bg-dark">
-        <div class="container">
-            <div class="row">
-                <nav class="col navbar navbar-expand-lg navbar-dark pt-3 pb-3">
-                    <a class="navbar-brand" href="index.html">Orinoco</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div id="navbarContent" class="collapse navbar-collapse justify-content-end">
-                        <ul class="navbar-nav pl-4 pt-2">
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html">Accueil</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Panier <span><i class="fas fa-shopping-bag"></i></span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
-    <section class="container text-center">
-        <div class="row">
-            <div class="col">
-                <div class="title">
-                    <h1>Appareils-photos Vintage</h1>
+    <div class="main">
+        <header class="bg-dark">
+            <div class="container">
+                <div class="row">
+                    <nav class="col navbar navbar-expand-lg navbar-dark pt-3 pb-3">
+                        <a class="navbar-brand" href="index.html">Orinoco</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarContent">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div id="navbarContent" class="collapse navbar-collapse justify-content-end">
+                            <ul class="navbar-nav pl-4 pt-2">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Accueil</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">Panier <span><i
+                                                class="fas fa-shopping-bag"></i></span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="container col-sm-10 col-12 mx-auto mt-5">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th class="text-center">Article</th>
-                    <th class="text-center">Quantité</th>
-                    <th class="text-center">Prix</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody id="products-tablebody">
-            </tbody>
-            <tfoot id="products-footer">
-            </tfoot>
-        </table>
-    </section>
-    <section class="container col-8 form-parent">
-        <!-- <div id="content__emptycart" class="d-flex justify-content-center"></div> -->
-        <div id="order-send" class="text-center"></div>
-        <form id="order-form"></form>
-    </section>
-    <div class="col-12 d-flex justify-content-center text-reset mt-5"><a href="/front-end/index.html"><i class="fas fa-arrow-left"></i></a></div>
+        </header>
+        <section class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <div class="title">
+                        <h1 class="mt-3 font-weight-bold">Appareils-photos Vintage</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container col-sm-10 col-12 mx-auto mt-5">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center">Article</th>
+                        <th class="text-center">Quantité</th>
+                        <th class="text-center">Prix</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="products-tablebody">
+                </tbody>
+                <tfoot id="products-footer">
+                </tfoot>
+            </table>
+        </section>
+        <section class="container col-8 form-parent">
+            <!-- <div id="content__emptycart" class="d-flex justify-content-center"></div> -->
+            <div id="order-send" class="text-center"></div>
+            <form id="order-form"></form>
+        </section>
+        <div class="col-12 d-flex justify-content-center text-reset mt-5"><button class="removeCart btn-infocart">Vider
+                le panier</button></div>
+        <div class="col-12 d-flex justify-content-center text-reset mt-5"><a href="/front-end/index.html"><i
+                    class="fas fa-arrow-left"></i></a></div>
+    </div>
     <footer class="container-fluid bg-dark footer">
         <div class="container my-auto">
             <ul class="row list-inline text-center justify-content-around pt-3">

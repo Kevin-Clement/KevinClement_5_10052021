@@ -42,6 +42,7 @@ function displayArticles(article) {
                     <h5 class="card-title"><strong>${article.name}</strong> ${(article.price)/100}.00 €</h5>
                     <p class="card-text">${article.description}</p>
                 </div>
+                <button class="col-lg-7 col-md-4 col-7 mt-2 mb-4 mx-auto btn-infocart">Plus d'informations</button>
             </a>
         </div>`
 }

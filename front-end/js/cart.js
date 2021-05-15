@@ -10,7 +10,7 @@ if (articleInLocalStorage === null || articleInLocalStorage == 0) {
     const emptyCart = `
     <tr id="title-cart-empty" class="col-12 mx-auto">
         <td></td>
-        <td class="text-center">Le panier est vide</td>
+        <td class="text-center">Votre panier est vide</td>
         <td></td>
     </tr>`
     productCart.innerHTML = emptyCart;
@@ -28,6 +28,26 @@ if (articleInLocalStorage === null || articleInLocalStorage == 0) {
     if (i == articleInLocalStorage.length) {
         productCart.innerHTML = structureCart;
     }
+    //Calcul total quantité
+    let totalQuantity = 0;
+    articleInLocalStorage.forEach((optionsProduct) => {
+        totalQuantity += optionsProduct.quantity;
+    });
+    console.log(totalQuantity)
+    
+    //Calcul somme total panier
+    let totalSum = 0;
+    articleInLocalStorage.forEach((article) => {
+        totalSum += article.price;
+    });
+    console.log(totalSum)
+    const sum = document.getElementById("products-footer").innerHTML = `
+    <tr class="col-12">
+        <td class="text-center font-weight-bolder totalsum text-uppercase">Total à payer</td>
+        <td class="text-center font-weight-bolder">${totalQuantity}</td>
+        <td class="text-center totalsum"><strong>${totalSum}.00€</strong></td>
+    </tr>`;
+
 
 }
 
@@ -35,31 +55,28 @@ if (articleInLocalStorage === null || articleInLocalStorage == 0) {
 //Selection du bouton
 
 let removeArticle = document.querySelectorAll(".removeArticle");
-console.log(removeArticle);
+// console.log(removeArticle);
 
-for(let k = 0; k < removeArticle.length; k++){
-    removeArticle[k].addEventListener("click",(e) =>{
+for (let k = 0; k < removeArticle.length; k++) {
+    removeArticle[k].addEventListener("click", (e) => {
         e.preventDefault();
 
         let removeIdSelect = articleInLocalStorage[k].theId;
         // attention probleme suppression de tous les memes id 
-        articleInLocalStorage = articleInLocalStorage.filter( elt => elt.theId !== removeIdSelect);
+        articleInLocalStorage = articleInLocalStorage.filter(elt => elt.theId !== removeIdSelect);
         console.log(articleInLocalStorage)
 
         // stringify() convertit une valeur JavaScript en chaîne JSON et envoie dans la key "article" du localStorage
         localStorage.setItem("article", JSON.stringify(articleInLocalStorage));
+
         window.location.reload();
     })
 }
 
-// removeArticle.addEventListener("click", () => {this.annulerArticle(i);})
-// annulerArticle = (i) => {
-//     articleInLocalStorage.splice(i, 1);
-//     localStorage.clear();
-//     // Mise à jour du nouveau panier avec suppression de l'article
-//     localStorage.setItem("article", JSON.stringify(articleInLocalStorage));
-//     //Mise à jour de la page pour affichage de la suppression au client
-//     window.location.reload();
-// };
+//Vider le panier
+let removeCart = document.querySelector(".removeCart");
 
-
+removeCart.addEventListener("click", () => {
+    localStorage.clear();
+    window.location.reload();
+})

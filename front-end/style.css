@@ -1,7 +1,12 @@
 body{
     font-family: 'Poppins';
+    display: flex;
+    flex-direction: column;
+    min-height:100vh;
 }
-
+.main{
+    flex-grow:1;
+}
 .navbar-brand{
     font-size: 1.5em;
     border: 2px solid white;
@@ -12,19 +17,15 @@ body{
 .navbar-brand:hover{
     opacity: .7;
 }
-
 .title{
     background: rgba(248, 248, 248, 0.7);
     border-radius: 5px;
     padding: 10px;
 }
-
-
 .card-img{
     cursor: pointer;
     overflow: hidden;
 }
-
 .card-img-top{
 	-webkit-transform: scale(1);
 	transform: scale(1);
@@ -35,10 +36,6 @@ body{
 	-webkit-transform: scale(1.1);
 	transform: scale(1.1);
 }
-footer{
-    margin-top: 30px;
-}
-
 .fab{
     color: white !important;
     transition: 150ms ease-in-out;
@@ -55,7 +52,6 @@ footer{
 }
 .fa-shopping-bag{
     padding-left: 10px;
-    color: white !important;
     transition: 150ms ease-in-out;
 }
 .fa-trash-alt{
@@ -68,23 +64,22 @@ footer{
     background-color: white;
     padding-top: 2px;
 }
-
-html {
-    position: relative;
-    min-height: 100%;
+.btn-infocart:hover{
+    transition: 200ms ease-in-out;
+    transform: scale(1.05);
 }
 label{
     margin-bottom: 30px;
 }
-
-.footer {
-    position: absolute;
-    bottom: -10%;
+button{
+    border-radius: 3px;
+    outline: none;
+}
+.totalsum{
+    font-size: 1.2em;
+}
+footer{
+    margin-top: 30px;
 }
 
-@media screen and (min-width:990px) {
-    .footer {
-        bottom: 0;
-    }
-}
 
