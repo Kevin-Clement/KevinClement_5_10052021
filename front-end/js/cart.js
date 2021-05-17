@@ -25,6 +25,7 @@ if (articleInLocalStorage === null || articleInLocalStorage == 0) {
             <td class="text-center removeArticle"><button class="btn-trash"><i class="fas fa-trash-alt"></button></td>
         </tr>`;
     }
+    
     if (i == articleInLocalStorage.length) {
         productCart.innerHTML = structureCart;
     }
@@ -33,21 +34,22 @@ if (articleInLocalStorage === null || articleInLocalStorage == 0) {
     articleInLocalStorage.forEach((optionsProduct) => {
         totalQuantity += optionsProduct.quantity;
     });
-    console.log(totalQuantity)
+    // Marqueur info panier
     
+    let sum = document.querySelector(".quantityCart").innerHTML = `${totalQuantity}`;
+    console.log(sum)
     //Calcul somme total panier
     let totalSum = 0;
     articleInLocalStorage.forEach((article) => {
         totalSum += article.price;
     });
-    console.log(totalSum)
-    const sum = document.getElementById("products-footer").innerHTML = `
+    document.getElementById("products-footer").innerHTML = `
     <tr class="col-12">
-        <td class="text-center font-weight-bolder totalsum text-uppercase">Total à payer</td>
+        <td class="text-center font-weight-bolder totalsum text-uppercase">Total</td>
         <td class="text-center font-weight-bolder">${totalQuantity}</td>
         <td class="text-center totalsum"><strong>${totalSum}.00€</strong></td>
+        <td></td>
     </tr>`;
-
 
 }
 

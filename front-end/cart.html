@@ -30,10 +30,13 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="index.html">Accueil</a>
                                 </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">Panier <span><i
-                                                class="fas fa-shopping-bag"></i></span></a>
-                                </li>
+                                <div class="d-flex">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">Panier <span><i
+                                                    class="fas fa-shopping-bag"></i></span></a>
+                                    </li>
+                                    <span class="quantityCart"></span>
+                                </div>
                             </ul>
                         </div>
                     </nav>
@@ -66,26 +69,69 @@
             </table>
         </section>
         <section class="container col-8 form-parent">
-            <!-- <div id="content__emptycart" class="d-flex justify-content-center"></div> -->
             <div id="order-send" class="text-center"></div>
             <form id="order-form"></form>
         </section>
-        <div class="col-12 d-flex justify-content-center text-reset mt-5"><button class="removeCart btn-infocart">Vider
+        <div class="col-12 d-flex justify-content-center mt-5"><button class="removeCart btn-removeCart">Vider
                 le panier</button></div>
-        <div class="col-12 d-flex justify-content-center text-reset mt-5"><a href="/front-end/index.html"><i
-                    class="fas fa-arrow-left"></i></a></div>
+        <hr class="line">
+        <!-- <div class="text-reset d-flex justify-content-center mt-5"><a href="/front-end/index.html"><i
+                    class="fas fa-arrow-left"></i></a></div> -->
+        <section class="container mt-5">
+            <h3 class="caption-form text-center mb-5">Merci de compléter les différents champs pour finaliser votre
+                commande
+            </h3>
+            <form>
+                <div class="row mt-3">
+                    <div class="form-group col-md-6">
+                        <label for="lastName">Nom</label>
+                        <input required type="text" class="form-control" id="lastName">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="firstName">Prénom</label>
+                        <input required type="text" class="form-control" id="firstName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="adress">Addresse</label>
+                    <input required type="text" class="form-control" id="adress">
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-5">
+                        <label for="city">Ville</label>
+                        <input required type="text" class="form-control" id="city">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputState">Région</label>
+                        <input required type="text" class="form-control" id="inputState">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputZip">Code postal</label>
+                        <input required type="text" class="form-control" id="inputZip">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="email">Email</label>
+                        <input required type="email" class="form-control" id="email">
+                    </div>
+                </div>
+            </form>
+            <button type="submit" id="camera-buy"
+                class="btn-order col-sm-4 col-12 mt-4 mb-4 pt-2 pb-2 d-flex justify-content-center mx-auto">Commander</button>
+        </section>
     </div>
     <footer class="container-fluid bg-dark footer">
         <div class="container my-auto">
             <ul class="row list-inline text-center justify-content-around pt-3">
                 <li class="list-inline-item">
-                    <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="#"><i class="fab fa-facebook-f fa-2x"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="#"><i class="fab fa-tripadvisor fa-2x text-reset"></i></a>
+                    <a href="#"><i class="fab fa-tripadvisor text-reset"></i></a>
                 </li>
             </ul>
         </div>
@@ -102,6 +148,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
     <script src="./js/cart.js"></script>
+    <script src="./js/quantity.js"></script>
 </body>
 
 </html>

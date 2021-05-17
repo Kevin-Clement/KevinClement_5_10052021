@@ -26,7 +26,7 @@ function getArticle() {
             // console.log(article);
             document.getElementById("article").innerHTML = `
             <div class="card col-lg-5 col-md-12 col-sm-12 col-12 mt-2 pt-3 pb-3 shadow">
-                <div class="card-img">
+                <div>
                     <img class="card-img" src="${article.imageUrl}" alt="">
                 </div>
             </div>
@@ -71,7 +71,7 @@ function getArticle() {
                 //Variable articleInLocalStorage dans laquelle on met les keys values dans le localStorage
                 // parse() analyse une chaîne de caractères JSON et construit la valeur JavaScript
                 let articleInLocalStorage = JSON.parse(localStorage.getItem("article"));
-
+    
                 // popup confirm() pour soit aller au panier ou retourner à l'acceuil;
                 const popupConfirm = () => {
                     if (window.confirm(

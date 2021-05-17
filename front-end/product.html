@@ -30,10 +30,13 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="index.html">Accueil</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="cart.html">Panier <span><i
-                                                class="fas fa-shopping-bag"></i></span></a>
-                                </li>
+                                <div class="d-flex">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="cart.html">Panier <span><i
+                                                    class="fas fa-shopping-bag"></i></span></a>
+                                    </li>
+                                    <span class="quantityCart"></span>
+                                </div>
                             </ul>
                         </div>
                     </nav>
@@ -59,13 +62,13 @@
         <div class="container my-auto">
             <ul class="row list-inline text-center justify-content-around pt-3">
                 <li class="list-inline-item">
-                    <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="#"><i class="fab fa-facebook-f fa-2x"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="#"><i class="fab fa-tripadvisor fa-2x text-reset"></i></a>
+                    <a href="#"><i class="fab fa-tripadvisor text-reset"></i></a>
                 </li>
             </ul>
         </div>
@@ -82,6 +85,8 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
     <script src="./js/product.js"></script>
+    <script src="./js/quantity.js"></script>
+
 </body>
 
 </html>
