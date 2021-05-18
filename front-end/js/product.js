@@ -99,7 +99,7 @@ Consultez le panier OK ou revenir à l'acceuil ANNULER`)) {
                 else {
                     articleInLocalStorage = [];
                     addArticleLocalStorage();
-                    console.log(articleInLocalStorage);
+                    // console.log(articleInLocalStorage);
                     popupConfirm();
                 }
             })

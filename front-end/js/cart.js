@@ -24,8 +24,9 @@ if (articleInLocalStorage === null || articleInLocalStorage == 0) {
             <td class="text-center">${(articleInLocalStorage[i].price)}.00 €</td>
             <td class="text-center removeArticle"><button class="btn-trash"><i class="fas fa-trash-alt"></button></td>
         </tr>`;
+
     }
-    
+
     if (i == articleInLocalStorage.length) {
         productCart.innerHTML = structureCart;
     }
@@ -35,7 +36,7 @@ if (articleInLocalStorage === null || articleInLocalStorage == 0) {
         totalQuantity += optionsProduct.quantity;
     });
     // Marqueur info panier
-    
+
     let sum = document.querySelector(".quantityCart").innerHTML = `${totalQuantity}`;
     console.log(sum)
     //Calcul somme total panier
@@ -82,3 +83,73 @@ removeCart.addEventListener("click", () => {
     localStorage.clear();
     window.location.reload();
 })
+
+// On écoute le bouton btnOrder
+let addEventListenerBtnOrder = document.getElementById("btnOrder").onclick = (e) => {
+    e.preventDefault()
+    sendOrder()
+}
+
+function sendOrder() {
+    const lastName = document.getElementById("lastName").value
+    const firstName = document.getElementById("firstName").value
+    const address = document.getElementById("adress").value
+    const city = document.getElementById("city").value
+    const inputState = document.getElementById("inputState").value
+    const inputZip = document.getElementById("inputZip").value
+    const email = document.getElementById("email").value
+
+    const nameRegex = /^[a-zA-Zàâçéèêëîïôûùüÿñæœ,.'-]+$/i
+    const addressRegex = /^[a-zA-Zàâçéèêëîïôûùüÿñæœ0-9\s,.'-]{3,}$/
+    const zipRegex = /[0-9]{5}/g
+    const emailRegex =  /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+
+    if (!(
+            nameRegex.test(firstName) &&
+            nameRegex.test(lastName) &&
+            addressRegex.test(address) &&
+            nameRegex.test(city) &&
+            nameRegex.test(inputState) &&
+            zipRegex.test(inputZip) &&
+            emailRegex.test(email) 
+        )) {
+        alert("Veuillez remplir les champs correctements avant de valider la commande")
+        return
+    }
+    
+    if(articleInLocalStorage === null){
+        alert("Veuillez sélectionner un article avant de valider la commande")
+        return
+    }
+    
+    const order = {
+        contact: {
+            firstName: firstName,
+            lastName: lastName,
+            address: address,
+            city: city,
+            email: email,
+        },
+        products: articleInLocalStorage.map(item=>item.theId)
+            
+    }
+    console.log(order)
+
+    const requestArticles = {
+        method: "POST",
+        Headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(order),
+    }
+    fetch("http://localhost:3000/api/cameras/order", requestArticles)
+        .then((response) => response.json())
+        .then((json) => {
+            console.log(json)
+            localStorage.removeItem("article")
+            // window.location.href = "order.html"
+        })
+        .catch(() => {
+            alert(error)
+        })
+}

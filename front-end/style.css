@@ -57,7 +57,7 @@ body{
 }
 .fa-trash-alt{
     color: #343A40;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 .btn-trash{
     border: none;
@@ -84,8 +84,12 @@ body{
 .btn-order:hover{
     transition: 200ms ease-in-out;
     transform: scale(1.05);
+    text-decoration: none;
 }
-
+.table td{
+    padding-left: 0.5rem;
+    vertical-align: middle;
+}
 label{
     margin-bottom: 5px;
 }
