@@ -1,6 +1,6 @@
 //Récupération de la chaine de requête dans l'url
 const queryString_url_id = window.location.search;
-
+console.log(queryString_url_id)
 //On Extrait l'id sans le ?
 
 const theId = queryString_url_id.slice(1);
@@ -10,6 +10,7 @@ const theId = queryString_url_id.slice(1);
 (async function () {
     //On attend les données avec await de la promesse fetch
     const article = await getArticle()
+
 })()
 
 //**********************************Récupération des articles**************************************

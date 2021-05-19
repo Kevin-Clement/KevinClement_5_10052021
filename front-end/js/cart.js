@@ -88,7 +88,9 @@ removeCart.addEventListener("click", () => {
 let addEventListenerBtnOrder = document.getElementById("btnOrder").onclick = (e) => {
     e.preventDefault()
     sendOrder()
+    
 }
+
 
 function sendOrder() {
     const lastName = document.getElementById("lastName").value
@@ -126,9 +128,9 @@ function sendOrder() {
         contact: {
             firstName: firstName,
             lastName: lastName,
-            address: address,
+            address: address + ' ' + inputZip,
             city: city,
-            email: email,
+            email: email
         },
         products: articleInLocalStorage.map(item=>item.theId)
             
@@ -137,19 +139,23 @@ function sendOrder() {
 
     const requestArticles = {
         method: "POST",
-        Headers: {
+        headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(order),
     }
+
+
     fetch("http://localhost:3000/api/cameras/order", requestArticles)
         .then((response) => response.json())
         .then((json) => {
             console.log(json)
-            localStorage.removeItem("article")
-            // window.location.href = "order.html"
+            window.location.href = `order.html?${json.orderId}`
         })
         .catch(() => {
             alert(error)
         })
+        
 }
+
+
