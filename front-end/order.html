@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <div class="main">
+    <main class="main">
         <header class="bg-dark">
             <div class="container">
                 <div class="row">
@@ -30,12 +30,12 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="index.html">Accueil</a>
                                 </li>
-                                <div class="d-flex">
-                                    <li class="nav-item">
+                                <li class="d-flex">
+                                    <div class="nav-item">
                                         <a class="nav-link" href="cart.html">Panier <span><i
                                                     class="fas fa-shopping-bag"></i></span></a>
-                                    </li>
-                                </div>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </nav>
@@ -55,10 +55,10 @@
             <p class="text-center font-weight-bold mb-4">Félicitation, votre commande à bien été prise en compte !</p>
             <p class="text-center font-weight-bold mb-4">Identifiant de votre commande : <span id="commandId" class="font-weight-normal"></span></p>
             <p class="text-center font-weight-bold mb-4">Prix total de la commande : <span id="totalPrice" class="font-weight-normal"></span></p>
-            <a href="index.html" class=" h5 mt-5 mb-5 pt-3 text-center mx-auto font-weight-bold d-flex justify-content-center"
-            href="/"><button class="btn-infocart text-uppercase py-2 px-3">Retourner à l'accueil</button></a>
+            <a href="index.html" class="return h5 my-5 py-2 text-center mx-auto font-weight-bold d-flex justify-content-center text-uppercase btn-infocart"
+            >Retourner à l'accueil</a>
         </div>
-
+    </main>
 
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

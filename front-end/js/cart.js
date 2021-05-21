@@ -1,9 +1,7 @@
 //Variable articleInLocalStorage dans laquelle on met les keys values dans le localStorage
 let articleInLocalStorage = JSON.parse(localStorage.getItem("article"));
-// console.log(articleInLocalStorage);
 
 const productCart = document.getElementById("products-tablebody");
-// console.log(productCart);
 
 //Si le panier est vide 
 if (articleInLocalStorage === null || articleInLocalStorage == 0) {
@@ -30,20 +28,22 @@ if (articleInLocalStorage === null || articleInLocalStorage == 0) {
     if (i == articleInLocalStorage.length) {
         productCart.innerHTML = structureCart;
     }
+
     //Calcul total quantité
     let totalQuantity = 0;
     articleInLocalStorage.forEach((optionsProduct) => {
         totalQuantity += optionsProduct.quantity;
     });
-    // Marqueur info panier
 
-    let sum = document.querySelector(".quantityCart").innerHTML = `${totalQuantity}`;
-    console.log(sum)
+    // Marqueur info panier
+    document.querySelector(".quantityCart").innerHTML = `${totalQuantity}`;
+
     //Calcul somme total panier
     let totalSum = 0;
     articleInLocalStorage.forEach((article) => {
         totalSum += article.price;
     });
+
     document.getElementById("products-footer").innerHTML = `
     <tr class="col-12">
         <td class="text-center font-weight-bolder totalsum text-uppercase">Total</td>
@@ -90,7 +90,6 @@ let addEventListenerBtnOrder = document.getElementById("btnOrder").onclick = (e)
     sendOrder()
     
 }
-
 
 function sendOrder() {
     const lastName = document.getElementById("lastName").value

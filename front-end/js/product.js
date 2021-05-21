@@ -9,8 +9,7 @@ const theId = queryString_url_id.slice(1);
 
 (async function () {
     //On attend les données avec await de la promesse fetch
-    const article = await getArticle()
-
+    await getArticle()
 })()
 
 //**********************************Récupération des articles**************************************
@@ -25,6 +24,7 @@ function getArticle() {
         //Récupération de l'article
         .then(function (article) {
             // console.log(article);
+            document.getElementById("articleName").innerHTML = `${article.name}`
             document.getElementById("article").innerHTML = `
             <div class="card col-lg-5 col-md-12 col-sm-12 col-12 mt-2 pt-3 pb-3 shadow">
                 <div>
