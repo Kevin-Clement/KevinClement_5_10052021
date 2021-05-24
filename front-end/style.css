@@ -4,12 +4,15 @@ body{
     flex-direction: column;
     min-height:100vh;
 }
+
 .main{
     flex-grow:1;
 }
+
 a{
     text-decoration: none !important;
 }
+
 .navbar-brand{
     font-size: 1.5em;
     border: 3px solid white;
@@ -17,51 +20,63 @@ a{
     border-radius: 6px;
     transition: 150ms ease-in-out;
 }
+
 .navbar-brand:hover{
     opacity: .7;
 }
+
 .title{
     background: rgba(248, 248, 248, 0.7);
     border-radius: 5px;
     padding: 10px;
 }
+
 .card-img{
     cursor: pointer;
     overflow: hidden;
 }
+
 .card-img-top{
 	-webkit-transform: scale(1);
 	transform: scale(1);
 	-webkit-transition: .3s ease-in-out;
 	transition: .3s ease-in-out;
 }
+
 .card-img-top:hover{
 	-webkit-transform: scale(1.1);
 	transform: scale(1.1);
 }
+
 .fab{
     color: white !important;
     transition: 150ms ease-in-out;
     font-size: 1.5em;
 }
+
 .fab:hover{
     opacity: .6;
 }
+
 .fa-shopping-bag{
     padding-left: 10px;
 }
+
 .fa-arrow-left{
     color: #343A40;
     font-size: 1.5em;
 }
+
 .fa-shopping-bag{
     padding-left: 10px;
     transition: 150ms ease-in-out;
 }
+
 .fa-trash-alt{
     color: #343A40;
     font-size: 1.3em;
 }
+
 .btn-trash{
     border: none;
     outline: none;
@@ -73,11 +88,13 @@ a{
     margin-top: 40px;
     
 }
+
 .line {
     margin-top: 40px;
     max-width: 350px;
     border-top: 3px solid;
 }
+
 .btn-infocart:hover{
     transition: 200ms ease-in-out;
     transform: scale(1.02);
@@ -85,6 +102,7 @@ a{
     box-shadow: 0px 0px 8px 2px rgba(0,0,0,0.2);
     font-weight: 600;
 } 
+
 .btn-order{
     max-width: 200px;
     font-weight: bold;
@@ -93,6 +111,7 @@ a{
     background-color: #EFEFEF;
     color: black !important;
 }
+
 .btn-order:hover{
     transition: 200ms ease-in-out;
     transform: scale(1.02);
@@ -100,17 +119,21 @@ a{
     -webkit-box-shadow: 0px 0px 8px 2px rgba(0,0,0,0.2); 
     box-shadow: 0px 0px 8px 2px rgba(0,0,0,0.2);
 }
+
 .table td{
     padding-left: 0.5rem;
     vertical-align: middle;
 }
+
 label{
     margin-bottom: 5px;
 }
+
 button{
     border-radius: 3px;
     outline: none;
 }
+
 .totalsum{
     font-size: 1.2em;
 }
@@ -129,10 +152,12 @@ button{
     height: 16px;
     width: 16px;
 } 
+
 #totalPrice{
     padding-bottom: 2px;
     border-bottom: 2px solid #343A40;
 }
+
 .return{
     max-width: 250px;
     border: 1px solid black;
@@ -140,6 +165,7 @@ button{
     background-color: #EFEFEF;
     color: black !important;
 }
+
 footer{
     margin-top: 30px;
 }

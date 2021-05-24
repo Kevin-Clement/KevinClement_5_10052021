@@ -39,7 +39,7 @@ function displayArticles(article) {
                     <img class="card-img-top" src="${article.imageUrl}" alt="">
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title"><strong>${article.name}</strong> ${(article.price)/100}.00 €</h5>
+                    <p class="h5 card-title"><strong>${article.name}</strong> ${(article.price)/100}.00 €</p>
                     <p class="card-text">${article.description}</p>
                 </div>
                 <button class="col-lg-7 col-md-4 col-7 mt-2 mb-4 mx-auto btn-infocart">Plus d'informations</button>

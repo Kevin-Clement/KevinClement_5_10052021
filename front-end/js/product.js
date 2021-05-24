@@ -34,7 +34,7 @@ function getArticle() {
             <div class="card col-lg-5 col-md-12 col-sm-12 col-12 mt-2 pt-3 pb-3 shadow">
                 <div class="card text-decoration-none text-reset">
                     <div class="card-body pb-5">
-                        <h5 class="card-title"><strong>${article.name}</strong> ${(article.price)/100}.00 €</h5>
+                        <p class="h5 card-title"><strong>${article.name}</strong> ${(article.price)/100}.00 €</p>
                         <p class="card-text">${article.description}</p>
                         <form>
                             <label for="option">Choisir l'option : </label>

@@ -20,7 +20,7 @@ if (articleInLocalStorage === null || articleInLocalStorage == 0) {
             <td class="text-center"><strong>${articleInLocalStorage[i].name}</strong></td>
             <td class="text-center">1</td>
             <td class="text-center">${(articleInLocalStorage[i].price)}.00 €</td>
-            <td class="text-center removeArticle"><button class="btn-trash"><i class="fas fa-trash-alt"></button></td>
+            <td class="text-center removeArticle"><button class="btn-trash" aria-label="bouton poubelle suppression"><i class="fas fa-trash-alt"></button></td>
         </tr>`;
 
     }
