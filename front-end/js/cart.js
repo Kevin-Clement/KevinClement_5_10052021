@@ -88,7 +88,7 @@ removeCart.addEventListener("click", () => {
 let addEventListenerBtnOrder = document.getElementById("btnOrder").onclick = (e) => {
     e.preventDefault()
     sendOrder()
-    
+
 }
 
 function sendOrder() {
@@ -103,7 +103,7 @@ function sendOrder() {
     const nameRegex = /^[a-zA-Zàâçéèêëîïôûùüÿñæœ,.'-]+$/i
     const addressRegex = /^[a-zA-Zàâçéèêëîïôûùüÿñæœ0-9\s,.'-]{3,}$/
     const zipRegex = /[0-9]{5}/g
-    const emailRegex =  /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+    const emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
 
     if (!(
             nameRegex.test(firstName) &&
@@ -112,17 +112,17 @@ function sendOrder() {
             nameRegex.test(city) &&
             nameRegex.test(inputState) &&
             zipRegex.test(inputZip) &&
-            emailRegex.test(email) 
+            emailRegex.test(email)
         )) {
         alert("Veuillez remplir les champs correctements avant de valider la commande")
         return
     }
-    
-    if(articleInLocalStorage === null){
+
+    if (articleInLocalStorage === null) {
         alert("Veuillez sélectionner un article avant de valider la commande")
         return
     }
-    
+
     const order = {
         contact: {
             firstName: firstName,
@@ -131,8 +131,8 @@ function sendOrder() {
             city: city,
             email: email
         },
-        products: articleInLocalStorage.map(item=>item.theId)
-            
+        products: articleInLocalStorage.map(item => item.theId)
+
     }
     console.log(order)
 
@@ -154,7 +154,5 @@ function sendOrder() {
         .catch(() => {
             alert(error)
         })
-        
+
 }
-
-

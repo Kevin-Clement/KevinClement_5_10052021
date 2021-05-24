@@ -72,7 +72,7 @@ function getArticle() {
                 //Variable articleInLocalStorage dans laquelle on met les keys values dans le localStorage
                 // parse() analyse une chaîne de caractères JSON et construit la valeur JavaScript
                 let articleInLocalStorage = JSON.parse(localStorage.getItem("article"));
-    
+
                 // popup confirm() pour soit aller au panier ou retourner à l'acceuil;
                 const popupConfirm = () => {
                     if (window.confirm(

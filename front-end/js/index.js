@@ -1,4 +1,3 @@
-
 //************************fonction main qui s'execute des le chargement de la page****************
 
 (async function () {
@@ -46,4 +45,3 @@ function displayArticles(article) {
             </a>
         </div>`
 }
-
