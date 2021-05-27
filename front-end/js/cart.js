@@ -114,7 +114,7 @@ function sendOrder() {
         return
     }
 
-    if (articleInLocalStorage === null) {
+    if (articleInLocalStorage == null || articleInLocalStorage == 0 ) {
         alert("Veuillez sélectionner un article avant de valider la commande")
         return
     }
