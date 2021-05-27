@@ -136,8 +136,10 @@ button {
 .totalsum {
 	font-size: 1.2em;
 }
-
-.quantityCart {
+.quantityCart{
+	display: none;
+}
+.activeQuantityCart {
 	display: inline-block;
 	position: relative;
 	text-align: center;

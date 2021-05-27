@@ -35,9 +35,6 @@ if (articleInLocalStorage === null || articleInLocalStorage == 0) {
         totalQuantity += optionsProduct.quantity;
     });
 
-    // Marqueur info panier
-    document.querySelector(".quantityCart").innerHTML = `${totalQuantity}`;
-
     //Calcul somme total panier
     let totalSum = 0;
     articleInLocalStorage.forEach((article) => {
@@ -71,7 +68,6 @@ for (let k = 0; k < removeArticle.length; k++) {
 
         // stringify() convertit une valeur JavaScript en chaîne JSON et envoie dans la key "article" du localStorage
         localStorage.setItem("article", JSON.stringify(articleInLocalStorage));
-
         window.location.reload();
     })
 }
