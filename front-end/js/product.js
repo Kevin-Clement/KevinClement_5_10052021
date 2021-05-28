@@ -26,7 +26,7 @@ function getArticle() {
             // console.log(article);
             document.getElementById("articleName").innerHTML = `${article.name}`
             document.getElementById("article").innerHTML = `
-            <div class="card col-lg-5 col-md-12 col-sm-12 col-12 mt-2 pt-3 pb-3 shadow">
+            <div class="card justify-content-center col-lg-5 col-md-12 col-sm-12 col-12 mt-2 pt-3 pb-3 shadow">
                 <div>
                     <img class="card-img" src="${article.imageUrl}" alt="">
                 </div>
