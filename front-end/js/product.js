@@ -44,14 +44,14 @@ function getArticle() {
                                     `).join()}
                                 </select>
                         </form>
-                        <button class="btn-infocart"id="btn" type="submit" name="btn">Ajoutez l'article au panier</button>
+                        <button class="btn-infocart"id="btnAddCart" type="submit" name="btn">Ajoutez l'article au panier</button>
                     </div>
                 </div>
             </div>`;
             //********************************************PANIER ****************************************/
             // Selection du bouton Ajouter au panier
 
-            const userChoice = document.getElementById("btn");
+            const userChoice = document.getElementById("btnAddCart");
             // console.log(userChoice);
 
             // On écoute le bouton
