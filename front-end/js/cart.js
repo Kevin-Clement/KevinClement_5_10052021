@@ -99,7 +99,7 @@ function sendOrder() {
     const nameRegex = /^[a-zA-Zàâçéèêëîïôûùüÿñæœ,.'-]+$/i
     const addressRegex = /^[a-zA-Zàâçéèêëîïôûùüÿñæœ0-9\s,.'-]{3,}$/
     const zipRegex = /[0-9]{5}/g
-    const emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+    const emailRegex = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,3}$/
 
     if (!(
             nameRegex.test(firstName) &&
