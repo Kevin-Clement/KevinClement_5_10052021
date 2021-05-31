@@ -1,18 +1,16 @@
-//Récupération de la chaine de requête dans l'url
+//Récupération de la chaine de requête dans l'url en cours avec window.location 
+//et la propriété search qui est la partie qui suit le ? inclut
 const queryString_url_id = window.location.search;
-console.log(queryString_url_id)
+
 //On Extrait l'id sans le ?
-
 const theId = queryString_url_id.slice(1);
-// console.log(theId);
-
 
 (async function () {
     //On attend les données avec await de la promesse fetch
     await getArticle()
 })()
 
-//**********************************Récupération des articles**************************************
+//**********************************Récupération de l'article**************************************
 
 function getArticle() {
     //On return tout le fetch qui est une promesse
@@ -23,7 +21,6 @@ function getArticle() {
         })
         //Récupération de l'article
         .then(function (article) {
-            // console.log(article);
             document.getElementById("articleName").innerHTML = `${article.name}`
             document.getElementById("article").innerHTML = `
             <div class="card justify-content-center col-lg-5 col-md-12 col-sm-12 col-12 mt-2 pt-3 pb-3 shadow">
@@ -52,10 +49,11 @@ function getArticle() {
             // Selection du bouton Ajouter au panier
 
             const userChoice = document.getElementById("btnAddCart");
-            // console.log(userChoice);
 
             // On écoute le bouton
             userChoice.addEventListener("click", (e) => {
+                //methode preventDefault : action par défaut ne doit pas être prise en compte 
+                //(réactualise pas la page ici)
                 e.preventDefault();
 
                 // Récupération des informations du formulaire
@@ -70,7 +68,8 @@ function getArticle() {
 
                 //****************Local storage****************/
                 //Variable articleInLocalStorage dans laquelle on met les keys values dans le localStorage
-                // parse() analyse une chaîne de caractères JSON et construit la valeur JavaScript
+                // parse() converti les données au format JSON qui sont dans le localstorage en objet JS
+                //Methode getItem renvoie la valeur associée à la clé passé en paramètre "article"
                 let articleInLocalStorage = JSON.parse(localStorage.getItem("article"));
 
                 // popup confirm() pour soit aller au panier ou retourner à l'acceuil;
@@ -88,19 +87,21 @@ Consultez le panier OK ou revenir à l'acceuil ANNULER`)) {
                     //Ajout dans le tableau articleInLocalStorage de l'objet optionsProduct
                     articleInLocalStorage.push(optionsProduct);
                     // stringify() convertit une valeur JavaScript en chaîne JSON et envoie dans la key "article" du localStorage
+                    //Methode setItem permet l'ajout à l'emplacement de stockage 
                     localStorage.setItem("article", JSON.stringify(articleInLocalStorage));
                 }
                 // Si il y a déjà des articles dans le localStorage
+                //Condition True
                 if (articleInLocalStorage) {
                     addArticleLocalStorage();
                     console.log(articleInLocalStorage);
                     popupConfirm();
                 }
                 // Si il n'y a pas d'articles dans le localStorage
+                //Condition False
                 else {
                     articleInLocalStorage = [];
                     addArticleLocalStorage();
-                    // console.log(articleInLocalStorage);
                     popupConfirm();
                 }
             })

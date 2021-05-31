@@ -12,9 +12,10 @@
 //**********************************Récupération des articles**************************************
 
 function getArticles() {
-    //On return tout le fetch qui est une promesse
+    //On return tout le fetch qui est une promesse qui n'est pas encore résolue
     return fetch("http://localhost:3000/api/cameras")
-        //transformation en json
+        //Fonction qu'il execute a la récupération des données
+        //transformation en json du paramètre
         .then(function (httpBodyResponse) {
             return httpBodyResponse.json()
         })
@@ -22,7 +23,7 @@ function getArticles() {
         .then(function (articles) {
             return articles
         })
-        //Au cas ou il ne marche pas
+        //Au cas ou il ne marche pas (si l'API est down par exemple)
         .catch(function (error) {
             alert(error)
         })
@@ -30,6 +31,7 @@ function getArticles() {
 
 //*******************************Affichage de tous les articles dans la page*************************
 
+// On insere l'id du produit sélectionné avec ?${article._id}
 function displayArticles(article) {
     document.getElementById("articles").innerHTML += `
         <div class="card col-lg-5 col-md-12 col-sm-12 col-12 mt-4 mb-4 pt-3 pb-3 shadow">

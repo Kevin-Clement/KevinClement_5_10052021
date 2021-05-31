@@ -14,6 +14,7 @@ if (articleInLocalStorage === null || articleInLocalStorage == 0) {
     productCart.innerHTML = emptyCart;
 } else {
     let structureCart = [];
+    //Ajout de tous les articles du localStorage avec une boucle for
     for (i = 0; i < articleInLocalStorage.length; i++) {
         structureCart += `
         <tr class="col-12">
@@ -21,16 +22,13 @@ if (articleInLocalStorage === null || articleInLocalStorage == 0) {
             <td class="text-center">1</td>
             <td class="text-center">${(articleInLocalStorage[i].price)}.00 €</td>
             <td class="text-center removeArticle"><button class="btn-trash" aria-label="bouton poubelle suppression"><i class="fas fa-trash-alt"></button></td>
-        </tr>`;
-
+        </tr>`
     }
-
-    if (i == articleInLocalStorage.length) {
-        productCart.innerHTML = structureCart;
-    }
+    productCart.innerHTML = structureCart;
 
     //Calcul total quantité
     let totalQuantity = 0;
+    // La méthode forEach() permet d'exécuter une fonction donnée sur chaque élément du tableau
     articleInLocalStorage.forEach((optionsProduct) => {
         totalQuantity += optionsProduct.quantity;
     });
@@ -59,10 +57,12 @@ let removeArticle = document.querySelectorAll(".removeArticle");
 
 for (let k = 0; k < removeArticle.length; k++) {
     removeArticle[k].addEventListener("click", (e) => {
+        // evite le rechargement de la page
         e.preventDefault();
-
+        //Suppression grace a l'id de l'article
         let removeIdSelect = articleInLocalStorage[k].theId;
         // attention probleme suppression de tous les memes id 
+        // Ici Methode filter garde tous les elements qui remplissent différent de removeIdSelect
         articleInLocalStorage = articleInLocalStorage.filter(elt => elt.theId !== removeIdSelect);
         console.log(articleInLocalStorage)
 
