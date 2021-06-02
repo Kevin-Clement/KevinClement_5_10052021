@@ -1,15 +1,15 @@
-const productCart = document.getElementById("products-tablebody");
+let articleInLocalStorage = getBasket();
 
 //Si le panier est vide 
-if (articleInLocalStorage === null || articleInLocalStorage == 0) {
-    const emptyCart = `
+const productCart = document.getElementById("products-tablebody");
+    productCart.innerHTML = `
     <tr id="title-cart-empty" class="col-12 mx-auto">
         <td></td>
         <td class="text-center">Votre panier est vide</td>
         <td></td>
     </tr>`;
-    productCart.innerHTML = emptyCart;
-} else {
+    
+if(articleInLocalStorage != 0){
     let structureCart = [];
     //Ajout de tous les articles du localStorage avec une boucle for
     for (i = 0; i < articleInLocalStorage.length; i++) {
@@ -32,7 +32,7 @@ if (articleInLocalStorage === null || articleInLocalStorage == 0) {
     document.getElementById("products-footer").innerHTML = `
     <tr class="col-12">
         <td class="text-center font-weight-bolder totalsum text-uppercase">Total</td>
-        <td class="text-center font-weight-bolder">${totalQuantity / 2}</td>
+        <td class="text-center font-weight-bolder">${totalQuantity /2}</td>
         <td class="text-center totalsum"><strong>${totalSum}.00€</strong></td>
         <td></td>
     </tr>`;
@@ -48,9 +48,9 @@ for (let k = 0; k < removeArticle.length; k++) {
         // evite le rechargement de la page
         e.preventDefault();
         //Suppression grace a l'id de l'article
-        let removeIdSelect = articleInLocalStorage[k].theId;
+        let removeIdSelect = articleInLocalStorage[k].articleId;
         // Ici Methode filter garde tous les elements qui remplissent différent de removeIdSelect
-        articleInLocalStorage = articleInLocalStorage.filter(elt => elt.theId !== removeIdSelect);
+        articleInLocalStorage = articleInLocalStorage.filter(elt => elt.articleId !== removeIdSelect);
         // stringify() convertit une valeur JavaScript en chaîne JSON et envoie dans la key "article" du localStorage
         localStorage.setItem("article", JSON.stringify(articleInLocalStorage));
         window.location.reload();
@@ -118,7 +118,7 @@ let addEventListenerBtnOrder = document.getElementById("btnOrder").onclick = (e)
     const inputZip = document.getElementById("inputZip").value;
     const email = document.getElementById("email").value;
     
-    if (articleInLocalStorage == null || articleInLocalStorage == 0) {
+    if (articleInLocalStorage == 0) {
         return alert("Veuillez sélectionner un article avant de valider la commande");
     };
 
@@ -130,7 +130,7 @@ let addEventListenerBtnOrder = document.getElementById("btnOrder").onclick = (e)
             city: city,
             email: email
         },
-        products: articleInLocalStorage.map(item => item.theId)
+        products: articleInLocalStorage.map(item => item.articleId)
     };
 
     const requestArticles = {
