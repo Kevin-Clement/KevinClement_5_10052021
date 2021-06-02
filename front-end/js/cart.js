@@ -2,14 +2,14 @@ let articleInLocalStorage = getBasket();
 
 //Si le panier est vide 
 const productCart = document.getElementById("products-tablebody");
-    productCart.innerHTML = `
+productCart.innerHTML = `
     <tr id="title-cart-empty" class="col-12 mx-auto">
         <td></td>
         <td class="text-center">Votre panier est vide</td>
         <td></td>
     </tr>`;
-    
-if(articleInLocalStorage != 0){
+
+if (articleInLocalStorage != 0) {
     let structureCart = [];
     //Ajout de tous les articles du localStorage avec une boucle for
     for (i = 0; i < articleInLocalStorage.length; i++) {
@@ -28,7 +28,7 @@ if(articleInLocalStorage != 0){
 
     //Calcul somme total panier
     sumPrice();
-    
+
     document.getElementById("products-footer").innerHTML = `
     <tr class="col-12">
         <td class="text-center font-weight-bolder totalsum text-uppercase">Total</td>
@@ -87,7 +87,7 @@ function watchValidity(elt, condition) {
             validInputElt(e.target);
         }
     }
-    
+
     elt.onblur = (e) => {
         if (!condition(e)) {
             invalidInputElt(e.target);
@@ -117,7 +117,7 @@ let addEventListenerBtnOrder = document.getElementById("btnOrder").onclick = (e)
     const city = document.getElementById("city").value;
     const inputZip = document.getElementById("inputZip").value;
     const email = document.getElementById("email").value;
-    
+
     if (articleInLocalStorage == 0) {
         return alert("Veuillez sélectionner un article avant de valider la commande");
     };

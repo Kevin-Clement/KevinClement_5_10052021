@@ -42,4 +42,4 @@ function displayArticles() {
                 <button class="col-lg-7 col-md-4 col-7 mt-2 mb-4 mx-auto btn-infocart">Plus d'informations</button>
             </a>
         </div>`;
-    }
+}

@@ -1,9 +1,8 @@
-
 function getBasket() {
     let basket = localStorage.getItem("article");
-    if(basket == undefined){
+    if (basket == undefined) {
         return [];
-    }else{
+    } else {
         return JSON.parse(basket)
     }
 }
@@ -11,16 +10,16 @@ function getBasket() {
 let totalSum = 0;
 let totalQuantity = 0;
 
-function sumPrice(){
+function sumPrice() {
     let articleInLocalStorage = getBasket()
     articleInLocalStorage.forEach((article) => {
-            totalSum += article.price;
-        });
-    }
-    function sumQuantity(){
-        let articleInLocalStorage = getBasket()
-        articleInLocalStorage.forEach((optionsProduct) => {
-            totalQuantity += optionsProduct.quantity;
-        });
-    }
+        totalSum += article.price;
+    });
+}
 
+function sumQuantity() {
+    let articleInLocalStorage = getBasket()
+    articleInLocalStorage.forEach((optionsProduct) => {
+        totalQuantity += optionsProduct.quantity;
+    });
+}

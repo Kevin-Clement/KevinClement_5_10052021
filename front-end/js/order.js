@@ -9,4 +9,3 @@ document.getElementById("totalPrice").innerHTML = `${totalSum}.00 €`;
 if (window.location.href != orderId) {
     localStorage.clear();
 };
-
