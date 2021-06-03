@@ -41,7 +41,7 @@ function displayArticle(article) {
                             `).join()}
                         </select>
                 </form>
-                <button class="btn-infocart"id="btnAddCart" type="submit" name="btn">Ajoutez l'article au panier</button>
+                <button class="btn-infocart" id="btnAddCart" type="submit" name="btn">Ajoutez l'article au panier</button>
             </div>
         </div>
         </div>`;

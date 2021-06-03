@@ -4,7 +4,7 @@
     //On attend les données avec await de la promesse fetch
     const articles = await getArticles();
     for (article of articles) {
-        displayArticles();
+        displayArticles(article);
     }
 })();
 
@@ -28,7 +28,7 @@ function getArticles() {
         })
 };
 
-function displayArticles() {
+function displayArticles(article) {
     document.getElementById("articles").innerHTML += `
         <div class="card col-lg-5 col-md-12 col-sm-12 col-12 mt-4 mb-4 pt-3 pb-3 shadow">
             <a href="/front-end/product.html?id=${article._id}" class="card text-decoration-none text-reset">
