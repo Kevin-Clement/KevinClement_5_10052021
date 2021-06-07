@@ -1,5 +1,6 @@
 (async function () {
     const articleId = getArticleId();
+    console.log(articleId);
     const articleData = await getArticle(articleId);
     console.log(articleData)
     displayArticle(articleData);
