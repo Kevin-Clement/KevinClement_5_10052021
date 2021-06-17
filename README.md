@@ -1,5 +1,6 @@
 # KevinClement_5_10052021
 ## P5 - Parcours Developpeur Web OpenClassrooms - Orinoco
+Site de e-commerce
 
 ### Prérequis
 Vous avez besoin d'avoir Node et npm installé localement sur votre machine.
