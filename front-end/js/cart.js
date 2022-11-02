@@ -1,18 +1,14 @@
-let articleInLocalStorage = getBasket();
+import { postOrder } from './Services/articleApiService.js';
 
-//Si le panier est vide 
-const productCart = document.getElementById("products-tablebody");
-productCart.innerHTML = `
-    <tr id="title-cart-empty" class="col-12 mx-auto">
-        <td></td>
-        <td class="text-center">Votre panier est vide</td>
-        <td></td>
-    </tr>`;
+let articleInLocalStorage = getBasket();
+const productCartBody = document.getElementById("products-tablebody");
+const productCartFooter = document.getElementById("products-footer");
+
 
 if (articleInLocalStorage != 0) {
     let structureCart = [];
     //Ajout de tous les articles du localStorage avec une boucle for
-    for (i = 0; i < articleInLocalStorage.length; i++) {
+    for (let i = 0; i < articleInLocalStorage.length; i++) {
         structureCart += `
         <tr class="col-12">
             <td class="text-center"><strong>${articleInLocalStorage[i].name}</strong></td>
@@ -21,37 +17,34 @@ if (articleInLocalStorage != 0) {
             <td class="text-center removeArticle"><button class="btn-trash" aria-label="bouton poubelle suppression"><i class="fas fa-trash-alt"></button></td>
         </tr>`;
     };
-    productCart.innerHTML = structureCart;
+    productCartBody.innerHTML = structureCart;
 
-    //Calcul total quantité
-    sumQuantity();
-
-    //Calcul somme total panier
-    sumPrice();
-
-    document.getElementById("products-footer").innerHTML = `
+    productCartFooter.innerHTML = `
     <tr class="col-12">
         <td class="text-center font-weight-bolder totalsum text-uppercase">Total</td>
-        <td class="text-center font-weight-bolder">${totalQuantity /2}</td>
-        <td class="text-center totalsum"><strong>${totalSum}.00€</strong></td>
+        <td class="text-center font-weight-bolder">${sumQuantity() /2}</td>
+        <td class="text-center totalsum"><strong>${sumPrice()}.00€</strong></td>
         <td></td>
     </tr>`;
-
+        
+} else {
+        productCartBody.innerHTML = `
+    <tr id="title-cart-empty" class="col-12 mx-auto">
+        <td></td>
+        <td class="text-center">Votre panier est vide</td>
+        <td></td>
+    </tr>`;
 };
 
-//*********************Bouton supprimer************************
-//Selection du bouton
-let removeArticle = document.querySelectorAll(".removeArticle");
 
+let removeArticle = document.querySelectorAll(".removeArticle");
 for (let k = 0; k < removeArticle.length; k++) {
-    removeArticle[k].addEventListener("click", (e) => {
-        // evite le rechargement de la page
-        e.preventDefault();
-        //Suppression grace a l'id de l'article
+    removeArticle[k].addEventListener("click", () => {
+        
         let removeIdSelect = articleInLocalStorage[k].articleId;
-        // Ici Methode filter garde tous les elements qui remplissent différent de removeIdSelect
+
         articleInLocalStorage = articleInLocalStorage.filter(elt => elt.articleId !== removeIdSelect);
-        // stringify() convertit une valeur JavaScript en chaîne JSON et envoie dans la key "article" du localStorage
+
         localStorage.setItem("article", JSON.stringify(articleInLocalStorage));
         window.location.reload();
     });
@@ -81,34 +74,10 @@ watchValidity(document.getElementById('inputZip'), (e) => zipRegex.test(e.target
 watchValidity(document.getElementById('inputState'), (e) => nameRegex.test(e.target.value));
 watchValidity(document.getElementById('city'), (e) => nameRegex.test(e.target.value));
 
-function watchValidity(elt, condition) {
-    elt.oninput = (e) => {
-        if (condition(e)) {
-            validInputElt(e.target);
-        }
-    }
-
-    elt.onblur = (e) => {
-        if (!condition(e)) {
-            invalidInputElt(e.target);
-            return alert("Veuillez remplir les champs correctements avant de valider la commande");
-        }
-    }
-};
-
-function validInputElt(elt) {
-    elt.style.border = 'solid 1px green';
-    elt.style.boxShadow = '#00800066 0px 0px 4px';
-};
-
-function invalidInputElt(elt) {
-    elt.style.border = 'solid 1px red';
-    elt.style.boxShadow = 'rgba(128, 0, 0, 0.4) 0px 0px 4px';
-};
 
 /***************Envoi formulaire serveur*****************/
 
-let addEventListenerBtnOrder = document.getElementById("btnOrder").onclick = (e) => {
+document.getElementById("btnOrder").onclick = (e) => {
     e.preventDefault();
 
     const lastName = document.getElementById("lastName").value;
@@ -118,9 +87,8 @@ let addEventListenerBtnOrder = document.getElementById("btnOrder").onclick = (e)
     const inputZip = document.getElementById("inputZip").value;
     const email = document.getElementById("email").value;
 
-    if (articleInLocalStorage == 0) {
+    if (articleInLocalStorage == 0)
         return alert("Veuillez sélectionner un article avant de valider la commande");
-    };
 
     const order = {
         contact: {
@@ -133,22 +101,6 @@ let addEventListenerBtnOrder = document.getElementById("btnOrder").onclick = (e)
         products: articleInLocalStorage.map(item => item.articleId)
     };
 
-    const requestArticles = {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(order),
-    };
-
-    fetch("http://localhost:3000/api/cameras/order", requestArticles)
-        .then((response) => response.json())
-        .then((json) => {
-            console.log(json)
-            window.location.href = `order.html?id=${json.orderId}`
-        })
-        .catch(() => {
-            alert(error)
-        })
-
+    postOrder(order);
 };
+

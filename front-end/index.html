@@ -1,95 +1,133 @@
 <!DOCTYPE html>
 <html lang="fr">
-
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Orinoco le site numero 1 de la vente de cameras vintages !" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Orinoco le site numero 1 de la vente de cameras vintages !"
+    />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/406da18a0b.js" crossorigin="anonymous" defer></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/406da18a0b.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="/front-end/style.css" />
     <title>Orinoco</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="main">
-        <header class="bg-dark">
-            <div class="container">
-                <div class="row">
-                    <nav class="col navbar navbar-expand-lg navbar-dark pt-3 pb-3">
-                        <a class="navbar-brand" href="index.html">Orinoco</a>
-                        <button class="navbar-toggler" type="button" aria-label="bouton barre de navigation"
-                            data-toggle="collapse" data-target="#navbarContent">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div id="navbarContent" class="collapse navbar-collapse justify-content-end">
-                            <ul class="navbar-nav pl-4 pt-2">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="index.html">Accueil</a>
-                                </li>
-                                <li class="d-flex">
-                                    <div class="nav-item">
-                                        <a class="nav-link" href="cart.html">Panier <span><i
-                                                    class="fas fa-shopping-bag"></i></span></a>
-                                    </div>
-                                    <span class="quantityCart"></span>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </header>
-        <section class="container text-center">
-            <div class="row">
-                <div class="col">
-                    <div class="title">
-                        <h1 class="mt-3 font-weight-bold">Appareils-photos Vintage</h1>
-                        <p class="text-sub-title pt-3">
-                            Clic clic, c'est dans la boite! Avis aux fan de l'argentique...
-                            Pour compléter votre collection, craquez pour le look rétro de
-                            nos appareils Vintage, chinés rien que pour vous, au gré des
-                            brocante.
-                        </p>
+      <header class="bg-dark">
+        <div class="container">
+          <div class="row">
+            <nav class="col navbar navbar-expand-lg navbar-dark pt-3 pb-3">
+              <a class="navbar-brand" href="index.html">Orinoco</a>
+              <button
+                class="navbar-toggler"
+                type="button"
+                aria-label="bouton barre de navigation"
+                data-toggle="collapse"
+                data-target="#navbarContent"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div
+                id="navbarContent"
+                class="collapse navbar-collapse justify-content-end"
+              >
+                <ul class="navbar-nav pl-4 pt-2">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Accueil</a>
+                  </li>
+                  <li class="d-flex">
+                    <div class="nav-item">
+                      <a class="nav-link" href="cart.html"
+                        >Panier <span><i class="fas fa-shopping-bag"></i></span
+                      ></a>
                     </div>
-                </div>
-            </div>
-        </section>
-        <div class="container text-center">
-            <div id="articles" class="row justify-content-around"></div>
+                    <span class="quantityCart"></span>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
         </div>
+      </header>
+      <section class="container text-center">
+        <div class="row">
+          <div class="col">
+            <div class="title">
+              <h1 class="mt-3 font-weight-bold">Appareils-photos Vintage</h1>
+              <p class="text-sub-title pt-3">
+                Clic clic, c'est dans la boite! Avis aux fan de l'argentique...
+                Pour compléter votre collection, craquez pour le look rétro de
+                nos appareils Vintage, chinés rien que pour vous, au gré des
+                brocante.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="container text-center">
+        <div id="articles" class="row justify-content-around"></div>
+      </div>
     </div>
     <footer>
-        <div class="container-fluid bg-dark text-light">
-            <ul class="row list-unstyled list-inline text-center row align-items-end mb-0 pt-3 pb-3">
-                <li class="col-4 list-inline-item">
-                    <a href="#" aria-label="icone Twitter"><i class="fab fa-twitter"></i></a>
-                </li>
-                <li class="col-4 list-inline-item">
-                    <a href="#" aria-label="icone Facebook"><i class="fab fa-facebook-f"></i></a>
-                </li>
-                <li class="col-3 list-inline-item">
-                    <a href="#" aria-label="icone Tripadvisor"><i class="fab fa-tripadvisor text-reset"></i></a>
-                </li>
-            </ul>
-        </div>
+      <div class="container-fluid bg-dark text-light">
+        <ul
+          class="row list-unstyled list-inline text-center row align-items-end mb-0 pt-3 pb-3"
+        >
+          <li class="col-4 list-inline-item">
+            <a href="#" aria-label="icone Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+          </li>
+          <li class="col-4 list-inline-item">
+            <a href="#" aria-label="icone Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+          </li>
+          <li class="col-3 list-inline-item">
+            <a href="#" aria-label="icone Tripadvisor"
+              ><i class="fab fa-tripadvisor text-reset"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
     </footer>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
     <script src="./js/utils.js"></script>
-    <script src="/front-end/js/index.js"></script>
+    <script src="/front-end/js/index.js" type="module"></script>
     <script src="./js/quantity.js"></script>
-</body>
-
+  </body>
 </html>

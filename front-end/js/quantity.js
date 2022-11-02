@@ -1,7 +1,7 @@
 let articleQuantity = getBasket();
+const quantityCart = document.querySelector(".quantityCart");
 
 if (articleQuantity != 0){
-    sumQuantity();
-    document.querySelector(".quantityCart").classList.add("activeQuantityCart");
-    document.querySelector(".quantityCart").innerHTML = `${totalQuantity}`;
+    quantityCart.classList.add("activeQuantityCart");
+    quantityCart.innerHTML = `${sumQuantity()}`;
 };

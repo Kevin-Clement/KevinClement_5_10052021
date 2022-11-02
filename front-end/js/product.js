@@ -1,29 +1,24 @@
+import { getArticle } from "./Services/articleApiService.js";
+
+const articleNameNode = document.getElementById("articleName");
+const articleNode = document.getElementById("article");
+
 (async function () {
     const articleId = getArticleId();
-    console.log(articleId);
+
     const articleData = await getArticle(articleId);
-    console.log(articleData)
+
     displayArticle(articleData);
+    setBacket(articleData);
 })();
 
 function getArticleId() {
     return new URL(window.location.href).searchParams.get('id')
 }
 
-function getArticle(articleId) {
-    return fetch(`http://localhost:3000/api/cameras/${articleId}`)
-        //transformation en json
-        .then((httpBodyResponse) => httpBodyResponse.json())
-        //Récupération de l'article
-        .then((articleData) => articleData)
-        .catch(function (error) {
-            alert(error)
-        })
-}
-
 function displayArticle(article) {
-    document.getElementById("articleName").innerHTML = `${article.name}`
-    document.getElementById("article").innerHTML = `
+    articleNameNode.innerHTML = `${article.name}`
+    articleNode.innerHTML = `
     <div class="card justify-content-center col-lg-5 col-md-12 col-sm-12 col-12 mt-2 pt-3 pb-3 shadow">
         <div>
             <img class="card-img" src="${article.imageUrl}" alt="">
@@ -46,10 +41,16 @@ function displayArticle(article) {
             </div>
         </div>
         </div>`;
-    //********************************************PANIER ****************************************/
+}
+
+const setBacket = (article) =>{
+
     const userChoice = document.getElementById("btnAddCart");
+
     userChoice.addEventListener("click", () => {
+
         let articleInLocalStorage = getBasket();
+
         let optionsProduct = {
             name: article.name,
             articleId: article._id,
@@ -59,13 +60,18 @@ function displayArticle(article) {
         articleInLocalStorage.push(optionsProduct);
         localStorage.setItem("article", JSON.stringify(articleInLocalStorage));
 
-        if (window.confirm(
-                `${article.name} au prix de ${article.price / 100}.00€ a bien été ajouté au panier 
-Consultez le panier OK ou revenir à l'acceuil ANNULER`)) {
-            window.location.href = "cart.html";
-        } else {
-            window.location.href = "index.html";
-        }
-    });
+        confirmAddBasket(article);
 
-};
+    });
+}
+
+const confirmAddBasket = (article) => {
+    
+    if (window.confirm(
+        `${article.name} au prix de ${article.price / 100}.00€ a bien été ajouté au panier 
+    Consultez le panier OK ou revenir à l'accueil ANNULER`)) {
+        window.location.href = "cart.html";
+    } else {
+        window.location.href = "index.html";
+    }
+}
